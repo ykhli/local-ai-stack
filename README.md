@@ -45,12 +45,6 @@ brew install supabase/tap/supabase
 supabase start
 ```
 
-3. Serve embedding generation function
-
-```
-supabase functions serve
-```
-
 ### 5. Fill in secrets
 
 ```
