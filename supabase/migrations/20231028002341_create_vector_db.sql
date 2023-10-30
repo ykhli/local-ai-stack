@@ -8,7 +8,7 @@ create table documents (
   id bigserial primary key,
   content text, -- corresponds to Document.pageContent
   metadata jsonb, -- corresponds to Document.metadata
-  embedding vector(384) -- 384 works for OpenAI embeddings, change if needed
+  embedding vector(384) -- 384 works for Xenova/all-MiniLM-L6-v2 embeddings, change if needed
 );
 
 -- Create a function to search for documents
