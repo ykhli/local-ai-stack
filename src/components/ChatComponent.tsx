@@ -63,7 +63,6 @@ export default function ChatComponent({
       >
         <textarea
           id="prompt"
-          rows="1"
           className="mx-2 flex min-h-full w-full rounded-md border  bg-slate-300 p-2 text-base text-slate-900 placeholder-slate-400 focus:border-blue-600 focus:outline-none focus:ring-1 focus:ring-blue-600 dark:border-slate-300/20 dark:bg-slate-800 dark:text-slate-200 dark:placeholder-slate-400 dark:focus:border-blue-600 dark:focus:ring-blue-600"
           placeholder="Will AI take all our jobs?"
           value={input}
