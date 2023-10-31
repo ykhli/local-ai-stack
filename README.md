@@ -60,7 +60,7 @@ The only thing you need to fill out is `SUPABASE_PRIVATE_KEY` -- you can find th
 ### 6. Generate embeddings
 
 ```bash
-node src/scripts/indexBlogPGVectorWithEmbed.mjs
+node src/scripts/indexBlogLocal.mjs
 ```
 
 ### 7. Run app locally
