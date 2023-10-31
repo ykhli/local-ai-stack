@@ -1,13 +1,13 @@
-# Local AI Stack (WIP)
+# Local AI Stack
 
-This project was built on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started). The idea is to make it possible for anyone to run a simple AI app 100% locally without having to swipe a credit card 💳
+Make it possible for anyone to run a simple AI app that can do document Q&A **100% locally** without having to swipe a credit card 💳. Based on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started). 
 
 ## Stack
 
-- Inference: [Ollama](https://github.com/jmorganca/ollama)
-- VectorDB: [Supabase pgvector](https://supabase.com/docs/guides/database/extensions/pgvector)
-- LLM Orchestration: [Langchain.js](https://js.langchain.com/docs/)
-- App logic: [Next.js](https://nextjs.org/)
+- 🦙 Inference: [Ollama](https://github.com/jmorganca/ollama)
+- 💻 VectorDB: [Supabase pgvector](https://supabase.com/docs/guides/database/extensions/pgvector)
+- 🧠 LLM Orchestration: [Langchain.js](https://js.langchain.com/docs/)
+- 🖼️ App logic: [Next.js](https://nextjs.org/)
 
 ## Quickstart
 
@@ -67,9 +67,11 @@ Now you are ready to test out the app locally! To do this, simply run `npm run d
 
 If you want to the the local-only app to the next level, feel free to follow instructions on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started) for using Clerk, Pinecone/Supabase, OpenAI, Replicate and other cloud-based vendors.
 
-## Refs
-
-- https://github.com/a16z-infra/ai-getting-started
+## Refs & Credits
+- [AI SDK](https://sdk.vercel.ai/docs)
+- [LangUI](https://www.langui.dev/components)
+- [Tailwind CSS](https://tailwindcss.com/)
+- [a16z AI starter kit](https://github.com/a16z-infra/ai-getting-started)
 - https://js.langchain.com/docs/modules/indexes/vector_stores/integrations/pinecone
 - https://js.langchain.com/docs/modules/models/llms/integrations#replicate
 - https://js.langchain.com/docs/modules/chains/index_related_chains/retrieval_qa
