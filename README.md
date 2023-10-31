@@ -4,7 +4,7 @@ Make it possible for anyone to run a simple AI app that can do document Q&A **10
 
 <img width="600" alt="Screen Shot 2023-10-30 at 10 20 17 PM" src="https://github.com/ykhli/local-ai-stack/assets/3489963/b4a7eddb-e655-45c3-93d4-fbb26e94a96c">
 
-
+Have questions? Join [AI Stack devs](https://discord.gg/TsWCNVvRP5) and find me in #local-ai-stack channel.
 
 ## Stack
 
