@@ -1,6 +1,6 @@
 "use client";
 import { useState } from "react";
-import QAModal from "./QAModal";
+import ChatComponent from "./ChatComponent";
 import Image from "next/image";
 const examples = [
   {
@@ -16,12 +16,12 @@ export default function Examples() {
   const [TextToImageModalOpen, setTextToImageModalOpen] = useState(false);
   return (
     <div>
-      <QAModal open={QAModalOpen} setOpen={setQAModalOpen} />
+      <ChatComponent open={true} setOpen={setQAModalOpen} />
       <ul
         role="list"
         className="mt-14 m-auto max-w-3xl grid grid-cols-1 gap-6 lg:grid-cols-2"
       >
-        {examples.map((example, i) => (
+        {/* {examples.map((example, i) => (
           <li
             key={example.name}
             onClick={() => setQAModalOpen(true)}
@@ -46,7 +46,7 @@ export default function Examples() {
               </dl>
             </div>
           </li>
-        ))}
+        ))} */}
       </ul>
     </div>
   );

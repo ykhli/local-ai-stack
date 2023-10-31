@@ -11,8 +11,14 @@ export default function Home() {
         </h1>
 
         <p className="mx-auto mt-4 max-w-xl text-center text-xl leading-8 text-slate-400">
-          Help you set up an AI project with ease. Here are two example use
-          cases:
+          Q&A with AI on your own documents on a{" "}
+          <a
+            href="https://github.com/ykhli/local-ai-stack"
+            className="font-medium text-blue-600 dark:text-blue-500 hover:underline"
+          >
+            100% local stack
+          </a>
+          .
         </p>
 
         <Examples />
