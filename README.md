@@ -63,6 +63,7 @@ The only thing you need to fill out is `SUPABASE_PRIVATE_KEY` -- you can find th
 ```bash
 node src/scripts/indexBlogLocal.mjs
 ```
+This script takes in all files from /blogs, generate embeddings using [transformers.js](https://github.com/xenova/transformers.js), and store embeddings as well as metadata in Supabase.
 
 ### 7. Run app locally
 
