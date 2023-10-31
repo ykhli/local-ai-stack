@@ -14,21 +14,28 @@ export default function ChatComponent({
   setOpen: any;
 }) {
   const [messages, setMessages] = useState<Message[]>([]);
+  const messagesRef = useRef<HTMLDivElement>(null);
 
-  const { completion, input, isLoading, handleInputChange, handleSubmit } =
-    useCompletion({
-      api: "/api/qa-pg-vector",
+  const {
+    completion,
+    input,
+    setInput,
+    isLoading,
+    handleInputChange,
+    handleSubmit,
+  } = useCompletion({
+    api: "/api/qa-pg-vector",
 
-      onFinish: (prompt: string, completion: string) => {
-        console.log(messages);
-        setMessages((previousMessage) => {
-          previousMessage[previousMessage.length - 1].content == "Thinking..."
-            ? previousMessage.pop()
-            : null;
-          return [...previousMessage, { content: completion, user: "LLM" }];
-        });
-      },
-    });
+    onFinish: (prompt: string, completion: string) => {
+      console.log(messages);
+      setMessages((previousMessage) => {
+        previousMessage[previousMessage.length - 1].content == "Thinking..."
+          ? previousMessage.pop()
+          : null;
+        return [...previousMessage, { content: completion, user: "LLM" }];
+      });
+    },
+  });
 
   const handleFormSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
@@ -38,12 +45,21 @@ export default function ChatComponent({
       { content: input, user: "User" },
       { content: "Thinking...", user: "LLM" },
     ]);
-    // Scroll the textarea to the bottom
   };
+
+  // scroll to bottom on user input
+  useEffect(() => {
+    if (messagesRef.current && isLoading) {
+      messagesRef.current.scrollTop = messagesRef.current.scrollHeight;
+    }
+  }, [messages, isLoading]);
 
   return (
     <div className="mt-20 h-96 flex flex-col items-center justify-center">
-      <div className="w-full h-96 max-w-3xl scroll-auto flex-1 overflow-y-auto bg-slate-700 text-sm leading-6 text-slate-900 shadow-md dark:bg-slate-800 dark:text-slate-300 sm:text-base sm:leading-7">
+      <div
+        ref={messagesRef}
+        className="w-full h-96 max-w-3xl scroll-auto flex-1 overflow-y-auto bg-slate-700 text-sm leading-6 text-slate-900 shadow-md dark:bg-slate-800 dark:text-slate-300 sm:text-base sm:leading-7"
+      >
         {messages.map((message, i) => (
           <div key={i}>
             {message.user === "User" ? (
@@ -57,7 +73,8 @@ export default function ChatComponent({
       <form
         onSubmit={(e) => {
           e.preventDefault();
-          handleFormSubmit(e as any);
+          handleFormSubmit(e);
+          setInput("");
         }}
         className="flex w-full max-w-3xl items-center rounded-md bg-gray-800 p-2 "
       >
@@ -70,7 +87,8 @@ export default function ChatComponent({
           onKeyDown={(e) => {
             if (e.key === "Enter" && !e.shiftKey) {
               e.preventDefault();
-              handleFormSubmit(e as any);
+              const form = (e.target as HTMLTextAreaElement).form;
+              form?.requestSubmit();
             }
           }}
         ></textarea>
