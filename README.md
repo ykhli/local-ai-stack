@@ -2,6 +2,10 @@
 
 Make it possible for anyone to run a simple AI app that can do document Q&A **100% locally** without having to swipe a credit card 💳. Based on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started). 
 
+<img width="600" alt="Screen Shot 2023-10-30 at 10 20 17 PM" src="https://github.com/ykhli/local-ai-stack/assets/3489963/b4a7eddb-e655-45c3-93d4-fbb26e94a96c">
+
+
+
 ## Stack
 
 - 🦙 Inference: [Ollama](https://github.com/jmorganca/ollama)
