@@ -44,9 +44,8 @@ brew install supabase/tap/supabase
 
 2. Start Supabase
   
-
+Make sure you are under `/local-ai-stack` directory and run:
 ```
-cd local-ai-stack
 supabase start
 ```
 
