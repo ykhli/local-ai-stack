@@ -67,7 +67,7 @@ This script takes in all files from /blogs, generate embeddings using [transform
 
 ### 7. Run app locally
 
-Now you are ready to test out the app locally! To do this, simply run `npm run dev` under the project root.
+Now you are ready to test out the app locally! To do this, simply run `npm run dev` under the project root and visit `http://localhost:3000`.
 
 ### 6. Deploy the app
 
