@@ -54,8 +54,12 @@ supabase start
 ```
 cp .env.local.example .env.local
 ```
+Then get `SUPABASE_PRIVATE_KEY` by running
+```
+supabase status
+```
+Copy `anon key` and save it as `SUPABASE_PRIVATE_KEY` in `.env.local`
 
-The only thing you need to fill out is `SUPABASE_PRIVATE_KEY` -- you can find this by running `supabase status` and copy `anon key`
 
 ### 6. Generate embeddings
 
