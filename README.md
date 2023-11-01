@@ -43,6 +43,8 @@ brew install supabase/tap/supabase
 ```
 
 2. Start Supabase
+
+> Prerequisite: Docker is installed and running.
   
 Make sure you are under `/local-ai-stack` directory and run:
 ```
