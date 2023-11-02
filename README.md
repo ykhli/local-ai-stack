@@ -72,9 +72,9 @@ This script takes in all files from /blogs, generate embeddings using [transform
 
 Now you are ready to test out the app locally! To do this, simply run `npm run dev` under the project root and visit `http://localhost:3000`.
 
-### 6. Deploy the app
+### 8. Deploy the app
 
-If you want to the the local-only app to the next level, feel free to follow instructions on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started) for using Clerk, Pinecone/Supabase, OpenAI, Replicate and other cloud-based vendors.
+If you want to take the local-only app to the next level, feel free to follow instructions on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started) for using Clerk, Pinecone/Supabase, OpenAI, Replicate and other cloud-based vendors.
 
 ## Refs & Credits
 - [AI SDK](https://sdk.vercel.ai/docs)
