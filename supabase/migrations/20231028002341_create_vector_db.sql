@@ -10,6 +10,7 @@ create table documents (
   metadata jsonb, -- corresponds to Document.metadata
   embedding vector(384) -- 384 works for Xenova/all-MiniLM-L6-v2 embeddings, change if needed
 );
+alter table "public"."documents" enable row level security;
 
 -- Create a function to search for documents
 create function match_documents (
