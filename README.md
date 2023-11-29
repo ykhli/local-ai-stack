@@ -12,6 +12,8 @@ Have questions? Join [AI Stack devs](https://discord.gg/TsWCNVvRP5) and find me 
 - 💻 VectorDB: [Supabase pgvector](https://supabase.com/docs/guides/database/extensions/pgvector)
 - 🧠 LLM Orchestration: [Langchain.js](https://js.langchain.com/docs/)
 - 🖼️ App logic: [Next.js](https://nextjs.org/)
+- 🧮 Embeddings generation: [Transformer.js](https://github.com/xenova/transformers.js) and [
+all-MiniLM-L6-v2](https://huggingface.co/Xenova/all-MiniLM-L6-v2)
 
 ## Quickstart
 
