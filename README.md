@@ -1,6 +1,6 @@
 # Local AI Stack
 
-Make it possible for anyone to run a simple AI app that can do document Q&A **100% locally** without having to swipe a credit card 💳. Based on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started). 
+Make it possible for anyone to run a simple AI app that can do document Q&A **100% locally** without having to swipe a credit card 💳. Based on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started).
 
 <img width="600" alt="Screen Shot 2023-10-30 at 10 20 17 PM" src="https://github.com/ykhli/local-ai-stack/assets/3489963/b4a7eddb-e655-45c3-93d4-fbb26e94a96c">
 
@@ -43,8 +43,9 @@ brew install supabase/tap/supabase
 ```
 
 2. Start Supabase
-  
+
 Make sure you are under `/local-ai-stack` directory and run:
+
 ```
 supabase start
 ```
@@ -54,18 +55,21 @@ supabase start
 ```
 cp .env.local.example .env.local
 ```
+
 Then get `SUPABASE_PRIVATE_KEY` by running
+
 ```
 supabase status
 ```
-Copy `anon key` and save it as `SUPABASE_PRIVATE_KEY` in `.env.local`
 
+Copy `service_role key` and save it as `SUPABASE_PRIVATE_KEY` in `.env.local`
 
 ### 6. Generate embeddings
 
 ```bash
 node src/scripts/indexBlogLocal.mjs
 ```
+
 This script takes in all files from /blogs, generate embeddings using [transformers.js](https://github.com/xenova/transformers.js), and store embeddings as well as metadata in Supabase.
 
 ### 7. Run app locally
@@ -77,6 +81,7 @@ Now you are ready to test out the app locally! To do this, simply run `npm run d
 If you want to take the local-only app to the next level, feel free to follow instructions on [AI Starter Kit](https://github.com/a16z-infra/ai-getting-started) for using Clerk, Pinecone/Supabase, OpenAI, Replicate and other cloud-based vendors.
 
 ## Refs & Credits
+
 - [AI SDK](https://sdk.vercel.ai/docs)
 - [LangUI](https://www.langui.dev/components)
 - [Tailwind CSS](https://tailwindcss.com/)
