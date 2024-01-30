@@ -3,6 +3,7 @@ import { OpenAIEmbeddings } from "langchain/embeddings/openai";
 import { createClient } from "@supabase/supabase-js";
 import { OpenAI } from "langchain/llms/openai";
 import { Ollama } from "langchain/llms/ollama";
+import ollama from "ollama";
 import dotenv from "dotenv";
 import { VectorDBQAChain } from "langchain/chains";
 import { StreamingTextResponse, LangChainStream } from "ai";
@@ -15,6 +16,11 @@ export async function POST(req: Request) {
   const { prompt } = await req.json();
   const ollama_endpoint = process.env.OLLAMA_URL;
   const ollama_model = process.env.OLLAMA_MODEL;
+  //TODO - use this later
+  const modelfile = `
+  FROM ${ollama_model}
+  SYSTEM "You are a helpful assistant who answers the human's questions like you are a cartoon character. And you are always super happy.
+  `;
 
   const privateKey = process.env.SUPABASE_PRIVATE_KEY;
   if (!privateKey) throw new Error(`Expected env var SUPABASE_PRIVATE_KEY`);
@@ -33,11 +39,6 @@ export async function POST(req: Request) {
 
   if (ollama_endpoint) {
     console.info("Using Ollama");
-    model = new Ollama({
-      baseUrl: ollama_endpoint,
-      model: ollama_model ? ollama_model : "ollama",
-    });
-    model.verbose = true;
     const data = await vectorSearch(client, prompt);
     const contextData = data.map((d: any) => d.content);
 
@@ -46,9 +47,25 @@ export async function POST(req: Request) {
     Question: ${prompt}
     
     Context: ${JSON.stringify(contextData)}`;
-    const result = await model.call(modifiedPrompt);
 
-    return new Response(result);
+    const result = await ollama.generate({
+      model: ollama_model as string,
+      prompt: modifiedPrompt,
+      stream: true,
+    });
+
+    const ollamReadableStream = new ReadableStream({
+      async start(controller) {
+        for await (const chunk of result) {
+          console.log("chunk", chunk.response);
+          const buffer = new TextEncoder().encode(chunk.response);
+          controller.enqueue(buffer);
+        }
+        controller.close();
+      },
+    });
+
+    return new StreamingTextResponse(ollamReadableStream);
   } else {
     const vectorStore = await SupabaseVectorStore.fromExistingIndex(
       new OpenAIEmbeddings({ openAIApiKey: process.env.OPENAI_API_KEY }),
